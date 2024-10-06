@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\DTRController;
 use App\Http\Controllers\Api\GeoController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AdminController;
@@ -39,6 +40,8 @@ Route::apiResource('schedule', ScheduleController::class);
 Route::apiResource('absent', AbsentController::class);
 # COURSE
 Route::apiResource('course', CourseController::class);
+# DTR 
+Route::apiResource('dtr', DTRController::class);
 
 # FACE DATA
 Route::apiResource('facedata', FaceDataController::class);
