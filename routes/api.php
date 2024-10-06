@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AdminController;
 use App\Http\Controllers\Api\AbsentController;
 use App\Http\Controllers\Api\CourseController;
+use App\Http\Controllers\Api\FaceDataController;
 use App\Http\Controllers\Api\ScheduleController;
 use App\Http\Controllers\Api\AnnouncementController;
 use App\Http\Controllers\Api\EstablishmentController;
@@ -23,6 +24,9 @@ Route::post('admin/login', [AdminController::class, 'login']);
 # ADMIN CREATE
 Route::post('admin/register', [AdminController::class, 'register']);
 
+# GEOLOCATOR
+Route::post('geodata', [GeoController::class, 'getGeoData']);
+
 # ANNOUNCEMENT - RESOURCE
 Route::apiResource('announcement', AnnouncementController::class);
 # ESTABLISMENT - RESOURCE
@@ -36,9 +40,10 @@ Route::apiResource('absent', AbsentController::class);
 # COURSE
 Route::apiResource('course', CourseController::class);
 
+# FACE DATA
+Route::apiResource('facedata', FaceDataController::class);
 
-# GEOLOCATOR
-Route::post('geodata', [GeoController::class, 'getGeoData']);
+
 
 
 
