@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\GeoController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AdminController;
+use App\Http\Controllers\Api\AbsentController;
 use App\Http\Controllers\Api\ScheduleController;
 use App\Http\Controllers\Api\AnnouncementController;
 use App\Http\Controllers\Api\EstablishmentController;
@@ -29,6 +30,9 @@ Route::apiResource('establishment', EstablishmentController::class);
 Route::apiResource('accomplishment', AccomplishmentController::class);
 # SCHEDULE
 Route::apiResource('schedule', ScheduleController::class);
+# ABSENT
+Route::apiResource('absent', AbsentController::class);
+
 
 # GEOLOCATOR
 Route::post('geodata', [GeoController::class, 'getGeoData']);
