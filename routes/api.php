@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\GeoController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AdminController;
 use App\Http\Controllers\Api\AbsentController;
+use App\Http\Controllers\Api\CourseController;
 use App\Http\Controllers\Api\ScheduleController;
 use App\Http\Controllers\Api\AnnouncementController;
 use App\Http\Controllers\Api\EstablishmentController;
@@ -32,6 +33,8 @@ Route::apiResource('accomplishment', AccomplishmentController::class);
 Route::apiResource('schedule', ScheduleController::class);
 # ABSENT
 Route::apiResource('absent', AbsentController::class);
+# COURSE
+Route::apiResource('course', CourseController::class);
 
 
 # GEOLOCATOR
