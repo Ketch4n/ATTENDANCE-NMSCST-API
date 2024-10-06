@@ -26,7 +26,7 @@ class AdminController extends Controller
         } else {
             return response()->json([
                 'quack' => false,
-                'message' => 'Email or password invalid',
+                'message' => 'Email or Password invalid',
                 'user' => []
             ], 401);
         }
