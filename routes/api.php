@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AdminController;
 use App\Http\Controllers\Api\AnnouncementController;
 use App\Http\Controllers\Api\EstablishmentController;
+use App\Http\Controllers\Api\AccomplishmentController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -26,4 +27,8 @@ Route::apiResource('establishment', EstablishmentController::class);
 
 # GEOLOCATOR
 Route::post('geodata', [GeoController::class, 'getGeoData']);
+
+# ACCOMPLISHMENT
+Route::apiResource('accomplishment', AccomplishmentController::class);
+
 
