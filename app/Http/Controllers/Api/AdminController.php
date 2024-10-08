@@ -10,27 +10,36 @@ class AdminController extends Controller
 {
     public function login(Request $request)
     {
-        $userDetails = $request->validate([
-            'email' => ['required'],
-            'password' => ['required']
-        ]);
+        try {
+            $userDetails = $request->validate([
+                'email' => ['required', 'email'],
+                'password' => ['required']
+            ]);
 
-        // Attempt to authenticate the admin
-        if (auth()->guard('admin')->attempt(['email' => $userDetails['email'], 'password' => $userDetails['password']])) {
-            $admin = auth()->guard('admin')->user();
-            return response()->json([
-                'quack' => true,
-                'message' => 'Login Success',
-                'user' => $admin
-            ], 200);
-        } else {
+            // Attempt to authenticate the admin
+            if (auth()->guard('admin')->attempt(['email' => $userDetails['email'], 'password' => $userDetails['password']])) {
+                $admin = auth()->guard('admin')->user();
+                return response()->json([
+                    'quack' => true,
+                    'message' => 'Login Success',
+                    'user' => $admin
+                ], 200);
+            } else {
+                return response()->json([
+                    'quack' => false,
+                    'message' => 'Email or Password invalid',
+                    'user' => []
+                ], 401);
+            }
+        } catch (\Exception $e) {
             return response()->json([
                 'quack' => false,
-                'message' => 'Email or Password invalid',
+                'message' => 'Server Offline',
                 'user' => []
-            ], 401);
+            ], 500);
         }
     }
+
 
     public function register(Request $request){
 
