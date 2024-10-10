@@ -28,6 +28,9 @@ Route::post('admin/register', [AdminController::class, 'register']);
 
 # GEOLOCATOR
 Route::post('geodata', [GeoController::class, 'getGeoData']);
+# NEARBY PLACES
+Route::post('places', [GeoController::class, 'getNearbyPlaces']);
+
 
 # ANNOUNCEMENT - RESOURCE
 Route::apiResource('announcement', AnnouncementController::class);
