@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\AbsentController;
 use App\Http\Controllers\Api\CourseController;
 use App\Http\Controllers\Api\FaceDataController;
 use App\Http\Controllers\Api\ScheduleController;
+use App\Http\Controllers\api\SchoolYearController;
 use App\Http\Controllers\Api\DTRLocationController;
 use App\Http\Controllers\Api\AnnouncementController;
 use App\Http\Controllers\Api\EstablishmentController;
@@ -48,6 +49,9 @@ Route::apiResource('course', CourseController::class);
 Route::apiResource('dtr', DTRController::class);
 # DTR - LOCATION
 Route::apiResource('dtr-location', DTRLocationController::class);
+# SCHOOL YEAR
+Route::apiResource('school_year', SchoolYearController::class);
+
 
 # FACE DATA
 Route::apiResource('facedata', FaceDataController::class);
