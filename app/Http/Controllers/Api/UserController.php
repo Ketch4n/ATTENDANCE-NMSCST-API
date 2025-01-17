@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
@@ -35,4 +36,42 @@ class UserController extends Controller
             ], 401);
         }
     }
+    public function registerUser(Request $request)
+    {
+
+        $userDetails = $request->validate([
+            'name'=> 'required|string|max:255',
+            'email'=> 'required|email|unique:users,email',
+            'role'=> 'required|integer',
+            'password'=> 'required|string|max:255',
+            'course_id' => 'required|integer',
+            'section' => 'required|string|max:255',
+            'semester_id' => 'required|integer',
+            'school_year' => 'required|string|max:9',
+            'bdate' => 'required|date',
+            'address' => 'required|string|max:255',
+            'status' => 'required|integer',
+        ]);
+
+        $userDetails['password'] = bcrypt($userDetails['password']);
+
+
+        try {
+            $user = User::create($userDetails);
+            return response()->json([
+                'quack'=> true,
+                'message' => 'Users registered successfully',
+                // 'user' => $admin
+            ], 200);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'quack'=> false,
+                'message' => 'User registration failed',
+                // 'quack' => $e->getMessage()
+            ], 500);
+        } 
+    }
+   
 }
+
