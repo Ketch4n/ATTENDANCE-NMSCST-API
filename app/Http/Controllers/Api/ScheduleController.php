@@ -15,6 +15,7 @@ class ScheduleController extends Controller
         $mail =  Validator::make($request->all(),[
 
                 "establishment_id" => 'required|integer|max:11',
+                "user_id" => 'required|integer|max:11',
                 "in_am"=>'required',
                 "out_am"=>'required',
                 "in_pm"=>'required',
@@ -36,6 +37,7 @@ class ScheduleController extends Controller
             $schedule = ScheduleModel::create([
 
                 "establishment_id" =>  $request['establishment_id'], 
+                "user_id" => $request['user_id'],
                 "in_am"=> $request['in_am'], 
                 "out_am"=> $request['out_am'], 
                 "in_pm"=> $request['in_pm'], 

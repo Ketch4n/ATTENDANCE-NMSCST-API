@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('schedule', function (Blueprint $table) {
             $table->id();
             $table->integer('establishment_id');
+            $table->integer('user_id');
             $table->time('in_am');
             $table->time('out_am');
             $table->time('in_pm');

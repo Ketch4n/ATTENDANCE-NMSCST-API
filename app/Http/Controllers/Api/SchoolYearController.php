@@ -12,7 +12,7 @@ class SchoolYearController extends Controller
 {
     public function index(){
 
-        $schedule = SchoolYearModel::all();
+        $schedule = SchoolYearModel::all(); 
         return SchoolYearResource::collection($schedule);
 
     }

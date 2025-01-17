@@ -13,6 +13,7 @@ class ScheduleModel extends Model
 
     protected $fillable = [
         "establishment_id",
+        "user_id",
         "in_am",
         "out_am",
         "in_pm",
