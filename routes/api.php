@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AdminController;
 use App\Http\Controllers\Api\AbsentController;
 use App\Http\Controllers\Api\CourseController;
+use App\Http\Controllers\Api\ReportController;
 use App\Http\Controllers\Api\FaceDataController;
 use App\Http\Controllers\Api\ScheduleController;
 use App\Http\Controllers\api\SchoolYearController;
@@ -16,9 +17,12 @@ use App\Http\Controllers\Api\AnnouncementController;
 use App\Http\Controllers\Api\EstablishmentController;
 use App\Http\Controllers\Api\AccomplishmentController;
 
+# GET USER
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
+# USER REGISTER
+Route::post('user/register', [UserController::class, 'registerUser']);
 
 # USER LOGIN
 Route::post('user/login', [UserController::class, 'login']);
@@ -51,6 +55,12 @@ Route::apiResource('dtr', DTRController::class);
 Route::apiResource('dtr-location', DTRLocationController::class);
 # SCHOOL YEAR
 Route::apiResource('school_year', SchoolYearController::class);
+# REPORT
+Route::apiResource('report', ReportController::class);
+Route::post('report/count', [ReportController::class, 'report']);
+Route::post('report/outside', [ReportController::class, 'outsideRange']);
+
+
 
 
 # FACE DATA
