@@ -7,8 +7,8 @@ use App\Http\Controllers\Api\GeoController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AdminController;
 use App\Http\Controllers\Api\AbsentController;
-use App\Http\Controllers\Api\CourseController;
 use App\Http\Controllers\Api\ReportController;
+use App\Http\Controllers\api\ProgramController;
 use App\Http\Controllers\Api\FaceDataController;
 use App\Http\Controllers\Api\ScheduleController;
 use App\Http\Controllers\api\SchoolYearController;
@@ -47,8 +47,8 @@ Route::apiResource('accomplishment', AccomplishmentController::class);
 Route::apiResource('schedule', ScheduleController::class);
 # ABSENT
 Route::apiResource('absent', AbsentController::class);
-# COURSE
-Route::apiResource('course', CourseController::class);
+# PROGRAM
+Route::apiResource('program', ProgramController::class);
 # DTR 
 Route::apiResource('dtr', DTRController::class);
 # DTR - LOCATION
