@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('name');        
             $table->string('email')->unique();
-            $table->integer('course_id');
+            $table->string('course');
             $table->string('section');
-            $table->integer('semester_id');
+            $table->string('semester');
             $table->string('school_year');
-            $table->date('bdate');
-            $table->string('address');
+            $table->string('id_number');
+            $table->string('contact_number');
             $table->integer('role');
             $table->integer('status');
 

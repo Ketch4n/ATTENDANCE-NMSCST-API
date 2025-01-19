@@ -44,12 +44,12 @@ class UserController extends Controller
             'email'=> 'required|email|unique:users,email',
             'role'=> 'required|integer',
             'password'=> 'required|string|max:255',
-            'course_id' => 'required|integer',
+            'course' => 'required|string',
             'section' => 'required|string|max:255',
-            'semester_id' => 'required|integer',
+            'semester' => 'required|string',
             'school_year' => 'required|string|max:9',
-            'bdate' => 'required|date',
-            'address' => 'required|string|max:255',
+            'id_number' => 'required|string',
+            'contact_number' => 'required|string|max:255',
             'status' => 'required|integer',
         ]);
 

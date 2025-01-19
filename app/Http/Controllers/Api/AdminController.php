@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\AdminModel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\AdminResource;
 
 class AdminController extends Controller
 {
@@ -67,5 +68,12 @@ class AdminController extends Controller
                 // 'quack' => $e->getMessage()
             ], 500);
         } 
+    }
+
+    public function index(){
+
+        $admin = AdminModel::all(); 
+        return AdminResource::collection($admin);
+
     }
 }

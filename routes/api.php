@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\DTRController;
 use App\Http\Controllers\Api\GeoController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AdminController;
+use App\Http\Controllers\api\EmailController;
 use App\Http\Controllers\Api\AbsentController;
 use App\Http\Controllers\Api\ReportController;
 use App\Http\Controllers\api\ProgramController;
@@ -30,6 +31,11 @@ Route::post('user/login', [UserController::class, 'login']);
 Route::post('admin/login', [AdminController::class, 'login']);
 # ADMIN CREATE
 Route::post('admin/register', [AdminController::class, 'register']);
+# ADMIN RESOURCE
+Route::apiResource('admin', AdminController::class);
+
+# CHECK EMAIL
+Route::post('check_email', [EmailController::class, 'checkEmail']);
 
 # GEOLOCATOR
 Route::post('geodata', [GeoController::class, 'getGeoData']);
