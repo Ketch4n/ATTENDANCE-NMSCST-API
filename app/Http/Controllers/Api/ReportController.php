@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\User;
 use App\Models\DTRModel;
 use App\Models\AbsentModel;
-use App\Models\CourseModel;
+use App\Models\ProgramModel;
 use Illuminate\Http\Request;
 use App\Models\AnnouncementModel;
 use App\Models\EstablishmentModel;
@@ -31,7 +31,7 @@ class ReportController extends Controller
 
             'estab' => EstablishmentModel::count(),
 
-            'courses' => CourseModel::count(),
+            'courses' => ProgramModel::count(),
 
             'absent' => AbsentModel::whereBetween('created_at', ["$startYear-01-01", "$endYear-12-31"])
                               ->count(),

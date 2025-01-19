@@ -13,6 +13,7 @@ class ProgramModel extends Model
 
     protected $fillable = [
         "course",
+        "abbr",
         
     ];
 }

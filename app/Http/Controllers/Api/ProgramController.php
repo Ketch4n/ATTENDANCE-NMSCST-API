@@ -15,11 +15,12 @@ class ProgramController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'course' => 'required|string|max:255',
+            'abbr' => 'required|string|max:255',
         ]);
 
         if ($validator->fails()) {
             return response()->json([
-                'message' => 'COURSE FIELD REQUIRED',
+                'message' => 'COURSE FIELD and ABBR REQUIRED',
                 'quack' => false,
                 'error' => $validator->messages(),
             ], 422);
@@ -39,13 +40,13 @@ class ProgramController extends Controller
         try 
         {
             $course =  ProgramModel::create([
-                'course' => $request['course'], 
+                'course' => $request['course'],
+                'abbr' => $request['abbr'], 
               
-        
             ]);
         
             return response()->json([
-                'message'=> 'COURSE ADDED',
+                'message'=> 'COURSE ADDED SUCCESSFULLY',
                 'quack' => true,
                 'data'=> new ProgramResource($course)
             ], 200);
@@ -71,10 +72,11 @@ class ProgramController extends Controller
         try {
             $course->update([
                 'course' => $request['course'],
+                'abbr' => $request['abbr'],
             ]);
 
             return response()->json([
-                'message' => 'COURSE UPDATED',
+                'message' => 'COURSE UPDATED SUCCESSFULLY',
                 'quack' => true,
                 'data' => new ProgramResource($course),
             ], 200);
@@ -95,8 +97,15 @@ class ProgramController extends Controller
             return ProgramResource::collection($course);
     }
     
-    public function destroy( ProgramModel $course)
+    public function destroy($id)
     {
+        $course = ProgramModel::find($id);
+
+        if (!$course) {
+            return response()->json([
+                'message' => 'COURSE NOT FOUND.'
+            ], 404);
+        }
 
         $course->delete();
        
